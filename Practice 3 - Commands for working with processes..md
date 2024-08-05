@@ -3,7 +3,7 @@
 	2) `sleep 10 &` (& - фоновый режим)
 
 2. Перевести одну из задач, выполняющихся в интерактивном режиме, в фоновый режим.
-	1) `sleep 10`
+	1) `sleep 10` (интерактивный режим)
 	2) `CTRL+Z`
 	3) `bg`
 
@@ -13,6 +13,30 @@
 
 4. Сгенерировать информацию — полный листинг о всех процессах системы.
 	`pstree`
+	Результат:
+```
+├─NetworkManager───2*[{NetworkManager}]
+        ├─3*[VBoxClient───VBoxClient───3*[{VBoxClient}]]
+        ├─VBoxClient───VBoxClient───4*[{VBoxClient}]
+        ├─VBoxDRMClient───4*[{VBoxDRMClient}]
+        ├─VBoxService───8*[{VBoxService}]
+        ├─accounts-daemon───2*[{accounts-daemon}]
+        ├─acpid
+        ├─agetty
+        ├─anacron
+        ├─avahi-daemon───avahi-daemon
+        ├─blueman-tray───2*[{blueman-tray}]
+        ├─chronyd───chronyd
+        ├─colord───2*[{colord}]
+        ├─cron
+        ├─cups-browsed───2*[{cups-browsed}]
+        ├─cupsd───dbus
+        ├─dbus-daemon
+        ├─firefox─┬─Isolated Servic───21*[{Isolated Servic}]
+        │         ├─Isolated Web Co───22*[{Isolated Web Co}]
+        │         ├─Privileged Cont───16*[{Privileged Cont}]
+...
+```
 
 5. Завершить выполнение двух процессов, владельцем которых является текущий пользователь. Первый процесс завершить с помощью сигнала SIGTERM, задав его имя, второй — с помощью сигнала SIGKILL, задав его номер.
 	1) `killall –SIGTERM sleep`
@@ -40,7 +64,7 @@
 
 11. Вывести информацию о состоянии процессов системы в реальном режиме с обновлением один раз в 5 секунд. Отсортировать вывод по идентификатору пользователя по возрастанию и убыванию.
 	1) `watch -n 5 'ps -eo user,uid,pid,ppid,stat,ni,time,cmd --sort=uid'` по возрастанию UID
-	2) `watch -n 5 'ps -eo user,uid,pid,ppid,stat,ni,time,cmd | sort -k2'` по убыванию UID
+	2) `watch -n 5 'ps -eo user,uid,pid,ppid,stat,ni,time,cmd --sort=-uid` по убыванию UID
 
 12. Измените на 2 единицы приоритет процесса, запущенного из командного интерпретатора.
 	1) `sudo renice +2 -p 1234` (увеличиваем на 2 единицы)
