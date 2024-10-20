@@ -39,7 +39,7 @@
 	3) `ls dir2/`
 
 9. В одном из созданных каталогах переименуйте все файлы.
-	1) `mv dir1/text1_dir1.txt dir1/rename_text1_dir1.txt
+	1) `mv dir1/text1_dir1.txt dir1/rename_text1_dir1.txt`
 	2) `repeat step 1 for the second file`
 
 10. Продемонстрируйте работу команды _cd_ с использованием абсолютных и относительных путей.
