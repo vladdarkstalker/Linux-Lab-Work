@@ -7,7 +7,7 @@
 	4) Узнаем при помощи `id` группу: 
 	`uid=1000(admin1) gid=1000(admin1) groups=1000(admin1),27(sudo)`
 	5) `chmod 664 file1`
-	6) `chmod g+rw file2
+	6) `chmod g+rw file2`
 
 2. Установите специальный атрибут _atime_ для файла. Продемонстрируйте его установку.
 	`chattr +A file`
